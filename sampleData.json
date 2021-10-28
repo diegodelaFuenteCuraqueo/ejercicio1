@@ -1,0 +1,39 @@
+[
+  {
+    "id":1,
+    "title":"leche",
+    "price":500,
+    "description":"lechita",
+    "category":"lacteos",
+    "image":"",
+    "rating":{
+      "rate":5,
+      "count":2
+    }
+  },
+  {
+    "id":2,
+    "title":"té",
+    "price":300,
+    "description":"tecito verde",
+    "category":"despensa",
+    "image":"",
+    "rating":{
+      "rate":1,
+      "count":5
+    }
+  },
+  {
+    "id":3,
+    "title":"mantequilla",
+    "price":1500,
+    "description":"pal pancito",
+    "category":"lacteos",
+    "image":"",
+    "rating":{
+      "rate":3,
+      "count":10
+    }
+    
+  }
+]
