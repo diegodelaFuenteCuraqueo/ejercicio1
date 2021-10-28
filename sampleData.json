@@ -3,7 +3,7 @@
     "id":1,
     "title":"leche",
     "price":500,
-    "description":"lechita",
+    "description":"lechita corriente",
     "category":"lacteos",
     "image":"",
     "rating":{
@@ -15,7 +15,7 @@
     "id":2,
     "title":"té",
     "price":300,
-    "description":"tecito verde",
+    "description":"té verde",
     "category":"despensa",
     "image":"",
     "rating":{
@@ -32,6 +32,18 @@
     "image":"",
     "rating":{
       "rate":3,
+      "count":10
+    }
+  },
+  {
+    "id":4,
+    "title":"sal",
+    "price":400,
+    "description":"sal gruesa, de costa",
+    "category":"condimentos",
+    "image":"",
+    "rating":{
+      "rate":1,
       "count":10
     }
     

@@ -15,23 +15,23 @@ const meanPrice = productList => {
 //Obtener el producto más puntuado (Mayor de rating.count)
 const highestRating = productList => {
   const higher = productList.reduce((prev, current) => {
-    return (prev.rating.rate > current.rating.rate) ? prev : current
+    return (prev.rating.count > current.rating.count) ? prev : current
   }) 
   return higher
 }
 
 //Obtener todos los productos de una categoría
-const getCategory = (productList,category) => {
+const getCategory = (productList, category) => {
   return productList.filter(product => product.category === category)
 }
 
 //Obtener un producto específico por el id
-const getProductById = (productList,id) => {
+const getProductById = (productList, id) => {
   return productList.find(product => product.id == id)
 }
 
 //Buscar todos los productos que contengan una palabra específica en title, category or description
-const findProduct = (productList,searchWord) => {
+const findProduct = (productList, searchWord) => {
   return productList.filter(product => {
     productText = `${product.title} ${product.description} ${product.category}`
     return productText.includes(searchWord) 
