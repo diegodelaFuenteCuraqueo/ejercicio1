@@ -4,12 +4,14 @@ const products = require("./sampleData.json")
 //for testing purposes only...
 test = {
   meanPrice : ejercicio.meanPrice(products),
-  bestRated : ejercicio.highestRating(products),
-  categoryProducts : ejercicio.getCategory(products,"lacteos"),
-  product : ejercicio.getProductById(products,1),
-  foundProduct: ejercicio.findProduct(products,"ch"),
+  bestRate : ejercicio.highestRating(products).title,
+  productsByCategory : ejercicio.getCategory(products,"lacteos"),
+  foundById : ejercicio.getProductById(products,1).title,
+  foundByString: ejercicio.findProduct(products,"ch"),
   lowRatedProducts : ejercicio.lowestRating(products),
-  meanRate : ejercicio.meanRate(products)
+  meanRate : ejercicio.meanRate(products),
+  meanCategoryRates : ejercicio.meanCategoryRates(products),
+  sortedProducts : ejercicio.sortByRate(products)
 }
 
 console.log(test)

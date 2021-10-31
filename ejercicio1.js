@@ -1,60 +1,37 @@
-
-//Obtener el precio (price) promedio de todos los productos
+//1 Obtener el precio (price) promedio de todos los productos
 const meanPrice = productList => {
-  const prices = productList.map(product => product.price);
-  return prices.reduce( (total, price, index, array) => {
-    total += price;
-    if(index === array.length-1) { 
-      return total/array.length;
-    }else{ 
-      return total;
-    }
+  const prices = productList.map(product => product.price)
+  return prices.reduce((total, price) => (total + price) / prices.length) 
+}
+
+//2 Obtener el producto más puntuado (Mayor de rating.count)
+const highestRating = products => products.reduce((prev, current) => (prev.rating.count > current.rating.count) ? prev : current)
+
+//3 Obtener todos los productos de una categoría
+const getCategory = (products, category) =>  products.filter(product => product.category === category)
+
+//4 Obtener un producto específico por el id
+const getProductById = (products, id) => products.find(product => product.id == id)
+
+//5 Buscar todos los productos que contengan una palabra específica en title, category or description
+const findProduct = (products, searchWord) => {
+  return products.filter(product => {
+    productTexts = `${product.title} ${product.description} ${product.category}`
+    return productTexts.includes(searchWord) 
   })
 }
 
-//Obtener el producto más puntuado (Mayor de rating.count)
-const highestRating = productList => {
-  const higher = productList.reduce((prev, current) => {
-    return (prev.rating.count > current.rating.count) ? prev : current
-  }) 
-  return higher
+//6 Buscar todos los productos con rating.rate menor a 3
+const lowestRating = products => products.filter(product => product.rating.rate < 3)
+
+//7 Obtener el rating.rate promedio de cada categoría de productos
+const meanRate = products => {
+  const rates = products.map(product => product.rating.rate)
+  return rates.reduce((total, rate) => (total + rate) / rates.length) 
 }
 
-//Obtener todos los productos de una categoría
-const getCategory = (productList, category) => {
-  return productList.filter(product => product.category === category)
-}
+//8 Ordenar por rate de manera descendente 
+const sortByRate = products => products.sort((a, b) => b.rating.rate - a.rating.rate)
 
-//Obtener un producto específico por el id
-const getProductById = (productList, id) => {
-  return productList.find(product => product.id == id)
-}
-
-//Buscar todos los productos que contengan una palabra específica en title, category or description
-const findProduct = (productList, searchWord) => {
-  return productList.filter(product => {
-    productText = `${product.title} ${product.description} ${product.category}`
-    return productText.includes(searchWord) 
-  })
-}
-
-//Buscar todos los productos con rating.rate menor a 3
-const lowestRating = productList => {
-  return productList.filter(product => product.rating.rate < 3) 
-}
-
-//Obtener el rating.rate promedio de cada categoría de productos
-const meanRate = productList => {
-  const rates = productList.map(product => product.rating.rate)
-  return rates.reduce( (total, rate, index, array) => {
-    total += rate;
-    if(index === array.length-1) { 
-      return total/array.length;
-    }else{ 
-      return total;
-    }
-  })
-}
-
-module.exports = { meanPrice, highestRating, getProductById, getCategory, lowestRating, meanRate, findProduct}
+module.exports = { meanPrice, highestRating, getProductById, getCategory, lowestRating, meanRate, findProduct, sortByRate}
 
